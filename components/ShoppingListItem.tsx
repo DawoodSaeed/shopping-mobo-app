@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { theme } from "../theme";
-
+import AntDesign from "@expo/vector-icons/AntDesign";
 type Props = {
   name: string;
   id: number;
@@ -40,6 +40,8 @@ const ShoppingListItem = ({ name, id, deleted }: Props) => {
         activeOpacity={0.65}
         disabled={deleted}
       >
+        <AntDesign name="delete" size={24} color="white" />
+
         <Text style={styles.buttonText}>Delete</Text>
       </TouchableOpacity>
     </View>
@@ -62,6 +64,9 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colorBlack,
     padding: 10,
     borderRadius: 6,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
 
   buttonText: {
