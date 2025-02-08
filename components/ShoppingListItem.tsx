@@ -1,20 +1,12 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TouchableOpacity,
-  ActivityIndicator,
-  Alert,
-} from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { theme } from "../theme";
 
 type Props = {
   name: string;
   id: number;
+  deleted: boolean;
 };
-const ShoppingListItem = ({ name, id }: Props) => {
+const ShoppingListItem = ({ name, id, deleted }: Props) => {
   const deleteFunc = () => {
     Alert.alert(
       `Are you sure you want to the delete ${name} ?`,
@@ -35,13 +27,18 @@ const ShoppingListItem = ({ name, id }: Props) => {
   };
 
   return (
-    <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{name}</Text>
+    <View
+      style={[styles.itemContainer, deleted ? styles.deletedRow : undefined]}
+    >
+      <Text style={[styles.itemText, deleted ? styles.deletedText : undefined]}>
+        {name}
+      </Text>
 
       <TouchableOpacity
         style={styles.button}
         onPress={deleteFunc}
         activeOpacity={0.65}
+        disabled={deleted}
       >
         <Text style={styles.buttonText}>Delete</Text>
       </TouchableOpacity>
@@ -52,15 +49,14 @@ const ShoppingListItem = ({ name, id }: Props) => {
 const styles = StyleSheet.create({
   itemContainer: {
     padding: 10,
-    borderRadius: 10,
-    borderBottomColor: "#1a759f",
+    borderBottomColor: theme.colorCerulean,
     borderBottomWidth: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
   },
 
-  itemText: { fontSize: 18, fontWeight: 300, fontFamily: "Inter_500Medium" },
+  itemText: { fontSize: 18, fontWeight: 300, fontFamily: theme.fontFamily },
 
   button: {
     backgroundColor: theme.colorBlack,
@@ -69,11 +65,22 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontFamily: "Inter_500Medium",
+    fontFamily: theme.fontFamily,
     color: theme.colorWhite,
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: 1,
+  },
+
+  deletedText: {
+    textDecorationLine: "line-through",
+    color: "gray",
+    opacity: 0.7,
+  },
+
+  deletedRow: {
+    backgroundColor: "#cecece",
+    opacity: 0.7,
   },
 });
 

@@ -24,16 +24,16 @@ export default function App() {
   }
 
   const shoppingItems = [
-    { id: 1, name: "Apples" },
-    { id: 2, name: "Bananas" },
-    { id: 3, name: "Oranges" },
-    { id: 4, name: "Milk" },
-    { id: 5, name: "Bread" },
-    { id: 6, name: "Eggs" },
-    { id: 7, name: "Cheese" },
-    { id: 8, name: "Chicken" },
-    { id: 9, name: "Rice" },
-    { id: 10, name: "Tomatoes" },
+    { id: 1, name: "Apples", deleted: false },
+    { id: 2, name: "Bananas", deleted: true }, // Marked as deleted
+    { id: 3, name: "Oranges", deleted: false },
+    { id: 4, name: "Milk", deleted: false },
+    { id: 5, name: "Bread", deleted: true }, // Marked as deleted
+    { id: 6, name: "Eggs", deleted: false },
+    { id: 7, name: "Cheese", deleted: false },
+    { id: 8, name: "Chicken", deleted: false },
+    { id: 9, name: "Rice", deleted: true }, // Marked as deleted
+    { id: 10, name: "Tomatoes", deleted: false },
   ];
 
   return (
