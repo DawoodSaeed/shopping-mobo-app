@@ -6,6 +6,7 @@ type Props = {
   id: number;
   deleted: boolean;
 };
+
 const ShoppingListItem = ({ name, id, deleted }: Props) => {
   const deleteFunc = () => {
     Alert.alert(
@@ -42,7 +43,7 @@ const ShoppingListItem = ({ name, id, deleted }: Props) => {
       >
         <AntDesign name="delete" size={24} color="white" />
 
-        <Text style={styles.buttonText}>Delete</Text>
+        {/* <Text style={styles.buttonText}>Delete</Text> */}
       </TouchableOpacity>
     </View>
   );

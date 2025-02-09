@@ -7,7 +7,7 @@ import {
   Inter_600SemiBold,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
-import ShoppingListItem from "./components/ShoppingListItem";
+import ShoppingListItem from "../components/ShoppingListItem";
 // display points (Pixel ratio) and this vary device.
 export default function App() {
   let [fontsLoaded] = useFonts({
